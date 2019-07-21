@@ -26,7 +26,4 @@ b = [a1,a2,a3,a4,a5]
 
 c = [sum(i) for i in zip(*b)]
 
-import operator
-index, value = max(enumerate(c), key=operator.itemgetter(1))
-
-print(index + 1)
+print(c.index(max(c)) + 1)
