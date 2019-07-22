@@ -1,5 +1,15 @@
-path = str(input('Select Directory: '))
+import sys
+import argparse as argp
 
+def createParser ():
+    parser = argp.ArgumentParser()
+    parser.add_argument ('-n', '--name', required=True)
+    return parser
+
+parser = createParser()
+namespace = parser.parse_args(sys.argv[1:])
+
+path = namespace.name
 
 with open(path+"/cash1.txt") as f1:
 

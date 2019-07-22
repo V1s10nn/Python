@@ -1,8 +1,20 @@
-with open(input('Select File: ')) as f:
+import sys
+import argparse as argp
+import numpy as np
+
+def createParser ():
+    parser = argp.ArgumentParser()
+    parser.add_argument ('-n', '--name', required=True)
+    return parser
+
+parser = createParser()
+namespace = parser.parse_args(sys.argv[1:])
+
+
+with open(namespace.name) as f:
 
     a = [float(line.rstrip('\n')) for line in f]
 
-import numpy as np
 p = round(np.percentile(a,90),2)
 m = round(np.percentile(a,50),2)
 maxl = round(max(a),2)
